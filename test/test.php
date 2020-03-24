@@ -74,6 +74,8 @@ function testOp() {
     testB((new BigInteger(20))->binaryAnd(18), "16", "binaryAnd");
     testB((new BigInteger(20))->binaryOr(18), "22", "binaryOr");
     testB((new BigInteger(20))->binaryXor(18), "6", "binaryXor");
+    testB((new BigInteger(3))->shiftLeft(4), "48", "shiftLeft");
+    testB((new BigInteger(3))->shiftRight(4), "0", "shiftRight");
     testB((new BigInteger(20))->setbit(3), "28", "setbit");
     test((new BigInteger(20))->testbit(4), true, "testbit true");
     test((new BigInteger(20))->testbit(3), false, "testbit false");

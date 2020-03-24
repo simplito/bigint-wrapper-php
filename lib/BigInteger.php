@@ -625,6 +625,20 @@ class BigInteger{
     public function sign() {
         return $this->value[0] === "-" ? -1 : ($this->value === "0" ? 0 : 1);
     }
+
+    public function shiftLeft($n) {
+        return $this->mul((new static(2))->pow($n));
+    }
+
+    public function shiftRight($n) {
+        $newInt = $this->div((new static(2))->pow($n));
+
+        if ($newInt->add($n)->cmp(0) < 0) {
+            return $newInt->sub(1);
+        }
+
+        return $newInt;
+    }
 }
 
 }
