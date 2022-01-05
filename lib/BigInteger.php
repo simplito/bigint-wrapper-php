@@ -324,6 +324,10 @@ class BigInteger{
             }
             if ($base == 16) {
                 $value = str_replace(" ", "", $value);
+                if(strtolower(substr($value, 0, 2)) === '0x')
+                {
+                    $value = str_replace("0x", "", $value);
+                }
                 if (!BigInteger::checkHex($value)) {
                     throw new \Exception("Invalid characters");
                 }
